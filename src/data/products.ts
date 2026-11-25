@@ -250,3 +250,29 @@ export const catalogOnlyProducts: CatalogProduct[] = [
       "Users who like coconut-scented lotions and want a dewy finish",
   },
 ];
+
+/** Campaign layer: the one-word "shade", short nav label and a legible ink per background. */
+export type CampaignMeta = {
+  short: string;
+  shade: string;
+  keyword: string;
+  ink: string;
+};
+
+export const campaign: Record<string, CampaignMeta> = {
+  "lemon-extract": { short: "Lemon", shade: "Brighten", keyword: "Lemon", ink: "#3a3207" },
+  "cocoa-butter": { short: "Cocoa", shade: "Repair", keyword: "Cocoa", ink: "#fff4e8" },
+  glycerine: { short: "Glycerine", shade: "Quench", keyword: "Glycerine", ink: "#3b0f3c" },
+  "aloe-vera": { short: "Aloe", shade: "Soothe", keyword: "Aloe", ink: "#0f3218" },
+  "body-milk": { short: "Milk", shade: "Smooth", keyword: "Milk", ink: "#ffffff" },
+  carrot: { short: "Carrot", shade: "Glow", keyword: "Carrot", ink: "#3a1500" },
+};
+
+export const COVER_THEME = { bg: "#f6efe4", ink: "#3b1d4a" } as const;
+
+/** "Fades Dark Spots: Contains…" → { title, detail } */
+export function splitBenefit(text: string): { title: string; detail: string } {
+  const at = text.indexOf(":");
+  if (at === -1) return { title: text, detail: "" };
+  return { title: text.slice(0, at).trim(), detail: text.slice(at + 1).trim() };
+}

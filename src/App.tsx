@@ -1,5 +1,5 @@
-import ProductSlider from "./components/ProductSlider";
+import Showcase from "./components/Showcase";
 
 export default function App() {
-  return <ProductSlider />;
+  return <Showcase />;
 }
